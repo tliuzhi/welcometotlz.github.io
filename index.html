@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>LZ Page</title>
+  <meta name="description" content="A beautiful, interactive clock with day/night themes">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width,initial-scale=1" name="viewport">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600&family=Roboto:wght@300;400;500&family=Satisfy&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+  <!-- Loading Screen with Hamster -->
+  <div id="loading-screen">
+    <div class="wheel-and-hamster">
+      <div class="wheel"></div>
+      <div class="hamster">
+        <div class="hamster__body">
+          <div class="hamster__head">
+            <div class="hamster__ear"></div>
+            <div class="hamster__eye"></div>
+            <div class="hamster__nose"></div>
+          </div>
+          <div class="hamster__limb hamster__limb--fr"></div>
+          <div class="hamster__limb hamster__limb--fl"></div>
+          <div class="hamster__limb hamster__limb--br"></div>
+          <div class="hamster__limb hamster__limb--bl"></div>
+          <div class="hamster__tail"></div>
+        </div>
+      </div>
+      <div class="spoke"></div>
+    </div>
+    <div class="loading-text">Loading...</div>
+  </div>
+
+  <!-- Liquid Glass Navbar -->
+  <nav class="glass-navbar">
+    <div class="navbar-content">
+      <div class="navbar-menu">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+      <div class="navbar-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Top Left Time Display -->
+  <div class="top-right-time">
+    <span id="current-time-line"></span>
+  </div>
+
+  <!-- Home Section -->
+  <section id="home" class="page-section">
+    <div class="center-container">
+      <div class="left-content">
+        <div class="name-title">Liu Zhi</div>
+        <div class="profession-line">
+          I'm a <span class="txt-rotate" data-period="2000" data-rotate='["Full Stack Engineer"]'></span>
+        </div>
+        <div class="description-line">
+          I enjoy exploring new technologies and building innovative solutions. This page changes according to the time of day. Feel free to look around!
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="page-section">
+    <div class="about-container">
+      <div class="about-header">
+        <h2 class="about-title">About Me</h2>
+        <p class="about-description">
+          Passionate Full Stack Engineer with expertise in modern web technologies and cloud solutions.
+        </p>
+      </div>
+      
+      <div class="skills-section">
+        <h3 class="skills-title">Technical Skills</h3>
+        <div class="skills-grid">
+          <div class="skill-item" data-skill="aws">
+            <div class="skill-icon">AWS</div>
+            <span class="skill-name">AWS</span>
+          </div>
+          <div class="skill-item" data-skill="python">
+            <div class="skill-icon">PY</div>
+            <span class="skill-name">Python</span>
+          </div>
+          <div class="skill-item" data-skill="gitlab">
+            <div class="skill-icon">GL</div>
+            <span class="skill-name">GitLab</span>
+          </div>
+          <div class="skill-item" data-skill="dialogflow">
+            <div class="skill-icon">DF</div>
+            <span class="skill-name">Google Dialogflow</span>
+          </div>
+          <div class="skill-item" data-skill="cordova">
+            <div class="skill-icon">CV</div>
+            <span class="skill-name">Cordova</span>
+          </div>
+          <div class="skill-item" data-skill="html">
+            <div class="skill-icon">HTML</div>
+            <span class="skill-name">HTML</span>
+          </div>
+          <div class="skill-item" data-skill="javascript">
+            <div class="skill-icon">JS</div>
+            <span class="skill-name">JavaScript</span>
+          </div>
+          <div class="skill-item" data-skill="css">
+            <div class="skill-icon">CSS</div>
+            <span class="skill-name">CSS</span>
+          </div>
+          <div class="skill-item" data-skill="react">
+            <div class="skill-icon">RX</div>
+            <span class="skill-name">React</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="page-section">
+    <div class="projects-container">
+      <div class="section-header">
+        <h2 class="section-title">Projects</h2>
+        <p class="section-description">
+          Some of the projects I've worked on, showcasing my technical skills and creativity.
+        </p>
+      </div>
+      
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-icon">WEB</div>
+          <h3 class="project-title">Web Applications</h3>
+          <p class="project-description">Full-stack web applications built with modern frameworks and cloud services.</p>
+          <div class="project-tech">React • Node.js • AWS</div>
+        </div>
+        
+        <div class="project-card">
+          <div class="project-icon">AI</div>
+          <h3 class="project-title">AI Chatbots</h3>
+          <p class="project-description">Intelligent conversational interfaces using Google Dialogflow and NLP.</p>
+          <div class="project-tech">Dialogflow • Python • APIs</div>
+        </div>
+        
+        <div class="project-card">
+          <div class="project-icon">APP</div>
+          <h3 class="project-title">Mobile Apps</h3>
+          <p class="project-description">Cross-platform mobile applications with native performance.</p>
+          <div class="project-tech">Cordova • JavaScript • CSS</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="page-section">
+    <div class="contact-container">
+      <div class="section-header">
+        <h2 class="section-title">Get In Touch</h2>
+        <p class="section-description">
+          Let's connect and discuss potential opportunities or collaborations.
+        </p>
+      </div>
+      
+      <div class="contact-content">
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="contact-icon">@</div>
+            <div class="contact-text">
+              <h4>Email</h4>
+              <p>hello@liuzhi.dev</p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">IN</div>
+            <div class="contact-text">
+              <h4>LinkedIn</h4>
+              <p>Connect with me professionally</p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">GH</div>
+            <div class="contact-text">
+              <h4>GitHub</h4>
+              <p>Check out my code repositories</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="main.js"></script>
+</body>
+</html>

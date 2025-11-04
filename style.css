@@ -343,9 +343,11 @@ body.day .profession-line .txt-rotate {
     letter-spacing: 0.3px;
     line-height: 1.6;
     margin-top: 25px;
-    max-width: 500px;
+    max-width: 600px;
+    width: 100%;
     opacity: 0.9;
     transition: all 0.3s ease;
+    text-align: left;
 }
 
 .description-line:hover {
@@ -418,6 +420,48 @@ body.day .top-right-time:hover #current-time-line {
     #current-time-line {
         font-size: 16px;
     }
+    
+    /* Mobile adjustments for main content */
+    .txt-rotate {
+        font-size: 2.5em;
+    }
+    
+    #time {
+        font-size: 3.5rem;
+    }
+    
+    .name-title {
+        font-size: 2.5rem;
+    }
+    
+    .profession-line {
+        font-size: 1.3rem;
+    }
+    
+    .description-line {
+        font-size: 1rem;
+        margin: 20px 0;
+        padding: 0;
+        line-height: 1.5;
+        max-width: 100%;
+        width: 100%;
+        text-align: left;
+    }
+    
+    .page-section {
+        padding: 60px 15px 15px;
+    }
+    
+    .center-container {
+        min-height: calc(100vh - 80px);
+        padding: 0 10px;
+    }
+    
+    .left-content {
+        left: 40px;
+        right: 40px;
+        width: auto;
+    }
 }
 
 @media (max-width: 480px) {
@@ -429,6 +473,58 @@ body.day .top-right-time:hover #current-time-line {
     
     #current-time-line {
         font-size: 14px;
+    }
+    
+    /* Extra small mobile adjustments */
+    .txt-rotate {
+        font-size: 2rem;
+    }
+    
+    #time {
+        font-size: 2.8rem;
+    }
+    
+    .name-title {
+        font-size: 2rem;
+    }
+    
+    .profession-line {
+        font-size: 1.1rem;
+    }
+    
+    .description-line {
+        font-size: 0.9rem;
+        padding: 0;
+        line-height: 1.4;
+        max-width: 100%;
+        width: 100%;
+        margin: 15px 0;
+        text-align: left;
+    }
+    
+    .page-section {
+        padding: 50px 10px 10px;
+    }
+    
+    .center-container {
+        min-height: calc(100vh - 70px);
+        padding: 0 5px;
+    }
+    
+    .left-content {
+        left: 20px;
+        right: 20px;
+        width: auto;
+    }
+    
+    #home.page-section {
+        padding-top: 0;
+    }
+    
+    #about.page-section,
+    #projects.page-section,
+    #contact.page-section {
+        padding-top: 80px;
     }
 }
 
@@ -922,11 +1018,11 @@ body.day .navbar-toggle span {
 @media (max-width: 768px) {
     .glass-navbar {
         width: calc(100% - 40px);
-        min-width: 280px;
-        max-width: 400px;
-        height: 50px;
+        min-width: 320px;
+        max-width: 500px;
+        height: 45px;
         top: 15px;
-        border-radius: 25px;
+        border-radius: 22px;
     }
     
     .navbar-content {
@@ -934,62 +1030,47 @@ body.day .navbar-toggle span {
     }
     
     .navbar-menu {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(20px);
-        border-radius: 15px;
-        margin-top: 8px;
-        padding: 15px;
-        flex-direction: column;
-        gap: 10px;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-    
-    .navbar-menu.active {
         display: flex;
+        gap: 5px;
     }
     
     .navbar-toggle {
-        display: flex;
-        right: 15px;
+        display: none;
     }
     
     .nav-link {
-        font-size: 0.9em;
-        padding: 6px 12px;
+        font-size: 0.8em;
+        padding: 5px 8px;
         text-align: center;
+        border-radius: 16px;
     }
 }
 
 @media (max-width: 480px) {
     .glass-navbar {
         width: calc(100% - 20px);
-        min-width: 250px;
-        height: 45px;
+        min-width: 280px;
+        height: 40px;
         top: 10px;
+        border-radius: 20px;
     }
     
     .navbar-content {
-        padding: 0 12px;
+        padding: 0 10px;
+    }
+    
+    .navbar-menu {
+        gap: 2px;
     }
     
     .navbar-toggle {
-        right: 12px;
-        gap: 3px;
-    }
-    
-    .navbar-toggle span {
-        width: 20px;
-        height: 2px;
+        display: none;
     }
     
     .nav-link {
-        font-size: 0.85em;
-        padding: 5px 10px;
+        font-size: 0.75em;
+        padding: 4px 6px;
+        border-radius: 14px;
     }
     
     .projects-grid {
@@ -1367,20 +1448,214 @@ body.day .skill-name {
     }
     
     .skills-grid {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 15px;
     }
     
     .skill-item {
-        padding: 20px 15px;
+        padding: 15px 10px;
     }
     
     .skill-icon {
-        font-size: 2.5em;
+        font-size: 1rem;
+        padding: 6px 8px;
+        min-width: 45px;
     }
     
     .skill-name {
-        font-size: 1em;
+        font-size: 0.9em;
+    }
+    
+    /* Section headers mobile */
+    .section-title {
+        font-size: 2.5rem;
+    }
+    
+    .section-description {
+        font-size: 1.1rem;
+        padding: 0 20px;
+    }
+    
+    /* Projects mobile */
+    .projects-container {
+        padding: 20px;
+    }
+    
+    .projects-grid {
+        gap: 20px;
+    }
+    
+    .project-card {
+        padding: 20px;
+    }
+    
+    .project-icon {
+        font-size: 1.3rem;
+        width: 50px;
+        height: 50px;
+        padding: 12px;
+    }
+    
+    /* Contact mobile */
+    .contact-container {
+        padding: 20px;
+    }
+    
+    .contact-info {
+        gap: 20px;
+    }
+    
+    .contact-item {
+        padding: 20px;
+        gap: 15px;
+    }
+    
+    .contact-icon {
+        font-size: 1.3rem;
+        min-width: 50px;
+        height: 50px;
+    }
+}
+
+/* Extra small mobile screens */
+@media (max-width: 480px) {
+    .about-container {
+        padding: 15px;
+        gap: 30px;
+    }
+    
+    .about-title {
+        font-size: 2rem;
+    }
+    
+    .skills-title {
+        font-size: 1.5rem;
+    }
+    
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 12px;
+    }
+    
+    .skill-item {
+        padding: 12px 8px;
+    }
+    
+    .skill-icon {
+        font-size: 0.9rem;
+        padding: 5px 6px;
+        min-width: 40px;
+    }
+    
+    .skill-name {
+        font-size: 0.8em;
+    }
+    
+    /* Section headers extra small */
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .section-description {
+        font-size: 1rem;
+        padding: 0 15px;
+    }
+    
+    /* Projects extra small */
+    .projects-container {
+        padding: 15px;
+    }
+    
+    .project-card {
+        padding: 15px;
+    }
+    
+    .project-icon {
+        font-size: 1.1rem;
+        width: 45px;
+        height: 45px;
+        padding: 10px;
+    }
+    
+    .project-title {
+        font-size: 1.3rem;
+    }
+    
+    .project-description {
+        font-size: 0.9rem;
+    }
+    
+    /* Contact extra small */
+    .contact-container {
+        padding: 15px;
+    }
+    
+    .contact-item {
+        padding: 15px;
+        gap: 12px;
+    }
+    
+    .contact-icon {
+        font-size: 1.1rem;
+        min-width: 45px;
+        height: 45px;
+    }
+    
+    .contact-text h4 {
+        font-size: 1.1rem;
+    }
+    
+    .contact-text p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Extra extra small screens */
+@media (max-width: 380px) {
+    .glass-navbar {
+        width: calc(100% - 16px);
+        min-width: 260px;
+        height: 36px;
+        font-size: 0.8em;
+        border-radius: 18px;
+    }
+    
+    .navbar-content {
+        padding: 0 8px;
+    }
+    
+    .navbar-menu {
+        gap: 1px;
+    }
+    
+    .nav-link {
+        font-size: 0.65em;
+        padding: 3px 4px;
+        border-radius: 12px;
+    }
+    
+    .description-line {
+        font-size: 0.8rem !important;
+        padding: 0 !important;
+        line-height: 1.3 !important;
+        margin: 15px 0 !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        text-align: left !important;
+    }
+    
+    .name-title {
+        font-size: 1.8rem !important;
+    }
+    
+    .profession-line {
+        font-size: 1rem !important;
+    }
+    
+    .left-content {
+        left: 15px !important;
+        right: 15px !important;
+        width: auto !important;
     }
 }
   

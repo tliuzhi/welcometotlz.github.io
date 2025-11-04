@@ -295,15 +295,11 @@ function setupNavigation() {
     });
   });
   
-  // Mobile menu toggle
-  const toggle = document.querySelector('.navbar-toggle');
-  const menu = document.querySelector('.navbar-menu');
+  // Mobile menu toggle - disabled for always-visible nav
+  // const toggle = document.querySelector('.navbar-toggle');
+  // const menu = document.querySelector('.navbar-menu');
   
-  if (toggle && menu) {
-    toggle.addEventListener('click', () => {
-      menu.classList.toggle('active');
-    });
-  }
+  // Navigation is always visible on mobile, no toggle needed
 }
 
 // ----------- Sparkle Effect -------------

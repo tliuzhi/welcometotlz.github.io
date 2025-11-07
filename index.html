@@ -2,12 +2,38 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>LZ Page</title>
-  <meta name="description" content="LZ Personal Portfolio">
-  <meta content="IE=edge" http-equiv="X-UA-Compatible">
-  <meta content="width=device-width,initial-scale=1" name="viewport">
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600&family=Roboto:wght@300;400;500&family=Satisfy&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <title>Liu Zhi - Personal Portfolio</title>
+  <meta name="description" content="Liu Zhi Personal Portfolio - Full Stack Engineer">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            'poppins': ['Poppins', 'sans-serif']
+          },
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+            'glow': 'glow 4s ease-in-out infinite alternate',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-20px)' }
+            },
+            glow: {
+              '0%': { boxShadow: '0 0 20px rgba(255, 235, 59, 0.5)' },
+              '100%': { boxShadow: '0 0 40px rgba(255, 235, 59, 0.8)' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -34,172 +60,132 @@
     <div class="loading-text">Loading...</div>
   </div>
 
-  <!-- Liquid Glass Navbar -->
-  <nav class="glass-navbar">
-    <div class="navbar-content">
-      <div class="navbar-menu">
-        <a href="#home" class="nav-link active">Home</a>
-        <a href="#about" class="nav-link">About</a>
-        <a href="#projects" class="nav-link">Projects</a>
-        <a href="#contact" class="nav-link">Contact</a>
-      </div>
-      <div class="navbar-toggle">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Top Left Time Display -->
-  <div class="top-right-time">
-    <span id="current-time-line"></span>
+  <!-- Time Display -->
+  <div class="time-display">
+    <span id="current-time"></span>
   </div>
 
   <!-- Home Section -->
-  <section id="home" class="page-section">
-    <div class="center-container">
-      <div class="left-content">
-        <div class="name-title">Liu Zhi</div>
-        <div class="profession-line">
+  <main id="home" class="h-screen flex items-center relative w-full">
+    <div class="container mx-auto px-16">
+      <div class="max-w-2xl">
+        <h1 class="name-title font-poppins font-semibold text-6xl text-white mb-4 drop-shadow-lg">Liu Zhi</h1>
+        <h2 class="profession-line font-poppins font-light text-3xl text-white drop-shadow-md mb-6">
           I'm a <span class="txt-rotate" data-period="2000" data-rotate='["Full Stack Engineer"]'></span>
-        </div>
-        <div class="description-line">
+        </h2>
+        <p class="description-line font-poppins font-light text-lg text-white/80 drop-shadow-sm leading-relaxed max-w-xl">
           I enjoy exploring new technologies and building innovative solutions. This page changes according to the time of day. Feel free to look around!
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section id="about" class="page-section">
-    <div class="about-container">
-      <div class="about-header">
-        <h2 class="about-title">About Me</h2>
-        <p class="about-description">
-          Passionate Full Stack Engineer with expertise in modern web technologies and cloud solutions.
         </p>
-      </div>
-      
-      <div class="skills-section">
-        <h3 class="skills-title">Technical Skills</h3>
-        <div class="skills-grid">
-          <div class="skill-item" data-skill="aws">
-            <div class="skill-icon">AWS</div>
-            <span class="skill-name">AWS</span>
-          </div>
-          <div class="skill-item" data-skill="python">
-            <div class="skill-icon">PY</div>
-            <span class="skill-name">Python</span>
-          </div>
-          <div class="skill-item" data-skill="gitlab">
-            <div class="skill-icon">GL</div>
-            <span class="skill-name">GitLab</span>
-          </div>
-          <div class="skill-item" data-skill="dialogflow">
-            <div class="skill-icon">DF</div>
-            <span class="skill-name">Google Dialogflow</span>
-          </div>
-          <div class="skill-item" data-skill="cordova">
-            <div class="skill-icon">CV</div>
-            <span class="skill-name">Cordova</span>
-          </div>
-          <div class="skill-item" data-skill="html">
-            <div class="skill-icon">HTML</div>
-            <span class="skill-name">HTML</span>
-          </div>
-          <div class="skill-item" data-skill="javascript">
-            <div class="skill-icon">JS</div>
-            <span class="skill-name">JavaScript</span>
-          </div>
-          <div class="skill-item" data-skill="css">
-            <div class="skill-icon">CSS</div>
-            <span class="skill-name">CSS</span>
-          </div>
-          <div class="skill-item" data-skill="react">
-            <div class="skill-icon">RX</div>
-            <span class="skill-name">React</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects Section -->
-  <section id="projects" class="page-section">
-    <div class="projects-container">
-      <div class="section-header">
-        <h2 class="section-title">Projects</h2>
-        <p class="section-description">
-          Some of the projects I've worked on, showcasing my technical skills and creativity.
-        </p>
-      </div>
-      
-      <div class="projects-grid">
-        <div class="project-card">
-          <div class="project-icon">WEB</div>
-          <h3 class="project-title">Web Applications</h3>
-          <p class="project-description">Full-stack web applications built with modern frameworks and cloud services.</p>
-          <div class="project-tech">React • Node.js • AWS</div>
+        
+        <!-- LinkedIn Button -->
+        <div class="light-button">
+          <button class="bt" onclick="window.open('https://www.linkedin.com/in/tayliuzhi/', '_blank')">
+            <div class="light-holder">
+              <div class="dot"></div>
+              <div class="light"></div>
+            </div>
+            <div class="button-holder">
+              <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.25c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.25h-3v-5.5c0-1.381-.112-2.623-2-2.623-1.887 0-2.171 1.146-2.171 2.537v5.586h-3v-11h2.842v1.522h.03c.396-.745 1.35-1.522 2.807-1.522 3.034 0 3.621 1.988 3.621 4.577v6.423z"></path>
+              </svg>
+              <p>LinkedIn</p>
+            </div>
+          </button>
         </div>
         
-        <div class="project-card">
-          <div class="project-icon">AI</div>
-          <h3 class="project-title">AI Chatbots</h3>
-          <p class="project-description">Intelligent conversational interfaces using Google Dialogflow and NLP.</p>
-          <div class="project-tech">Dialogflow • Python • APIs</div>
-        </div>
-        
-        <div class="project-card">
-          <div class="project-icon">APP</div>
-          <h3 class="project-title">Mobile Apps</h3>
-          <p class="project-description">Cross-platform mobile applications with native performance.</p>
-          <div class="project-tech">Cordova • JavaScript • CSS</div>
+        <!-- Tech Stack Scrolling -->
+        <div class="tech-scroll-container">
+          <div class="tech-scroll">
+            <div class="tech-item">
+              <svg class="tech-logo" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z"/>
+              </svg>
+              <span>HTML</span>
+            </div>
+            <div class="tech-item">
+              <svg class="tech-logo" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z"/>
+              </svg>
+              <span>JavaScript</span>
+            </div>
+            <div class="tech-item">
+              <svg class="tech-logo" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm17.09 4.413L5.41 4.41l.213 2.622 10.125.002-.255 2.716h-6.64l.24 2.573h6.182l-.366 3.523-2.91.804-2.956-.81-.188-2.11h-2.61l.29 3.855L12 19.288l5.373-1.53L18.59 4.414z"/>
+              </svg>
+              <span>CSS</span>
+            </div>
+            <div class="tech-item">
+              <svg class="tech-logo" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M14.25.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.77l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.17l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05L0 11.97l.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.24-.01h.16l.06.01h8.16v-.83H6.18l-.01-2.75-.02-.37.05-.34.11-.31.17-.28.25-.26.31-.23.38-.2.44-.18.51-.15.58-.12.64-.1.71-.06.77-.04.84-.02 1.27-.01h.6l.5.01.5.03.48.05.45.08.42.12.37.17.32.22.27.27.2.32.14.36.07.4.01.28-.02.26-.04.23-.06.2-.08.16-.09.13-.1.09-.09.05-.08.02-.05.01H14.4v-.91z"/>
+              </svg>
+              <span>Python</span>
+            </div>
+            <div class="tech-item">
+              <svg class="tech-logo" viewBox="0 0 304 182" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M86.4 66.4c0 3.7.4 6.7 1.1 8.9.8 2.2 1.8 4.6 3.2 7.2.5.8.7 1.6.7 2.3 0 1-.6 2-1.9 3l-6.3 4.2c-.9.6-1.8.9-2.6.9-1 0-2-.5-3-1.4-1.4-1.5-2.6-3.1-3.6-4.7-1-1.7-2-3.6-3.1-5.9-7.8 9.2-17.6 13.8-29.4 13.8-8.4 0-15.1-2.4-20-7.2s-7.4-11.2-7.4-19.2c0-8.5 3-15.4 9.1-20.6s14.2-7.8 24.5-7.8c3.4 0 6.9.3 10.6.8s7.5 1.3 11.5 2.2v-7.3c0-7.6-1.6-12.9-4.7-16-3.2-3.1-8.6-4.6-16.3-4.6-3.5 0-7.1.4-10.8 1.3s-7.3 2-10.8 3.4c-1.6.7-2.8 1.1-3.5 1.3s-1.2.3-1.6.3c-1.4 0-2.1-1-2.1-3.1v-4.9c0-1.6.2-2.8.7-3.5s1.4-1.4 2.8-2.1c3.5-1.8 7.7-3.3 12.6-4.5s10.1-1.8 15.6-1.8c11.9 0 20.6 2.7 26.2 8.1s8.3 13.6 8.3 24.3v32.1zm-40.6 15.2c3.3 0 6.7-.6 10.3-1.8s6.8-3.4 9.5-6.4c1.6-1.9 2.8-4 3.4-6.4s1-5.3 1-8.7v-4.2c-2.9-.7-6-1.3-9.2-1.7s-6.3-.6-9.4-.6c-6.7 0-11.6 1.3-14.9 4s-4.9 6.5-4.9 11.5c0 4.7 1.2 8.2 3.7 10.6 2.4 2.5 5.9 3.7 10.5 3.7zm80.3 10.8c-1.8 0-3-.3-3.8-1s-1.5-2.1-2.1-4.4l-23.5-77.3c-.6-2-.9-3.3-.9-4 0-1.6.8-2.5 2.4-2.5h9.8c1.9 0 3.2.3 3.9 1s1.4 2.1 1.9 4.4l16.8 66.2 15.6-66.2c.5-2 1.1-3.3 1.9-4.2s2.2-1 4-1h8c1.9 0 3.2.3 4 1s1.5 2.2 1.9 4.2l15.8 67 17.3-67c.6-2 1.3-3.3 2-4.2s2.1-1 3.9-1h9.3c1.6 0 2.5.8 2.5 2.5 0 .5-.1 1-.2 1.6s-.3 1.4-.7 2.5l-24.1 77.3c-.6 2-1.3 3.3-2.1 4.2s-2.1 1-3.8 1h-8.6c-1.9 0-3.2-.3-4-1s-1.5-2.1-1.9-4.1l-15.5-64.5-15.3 64.5c-.5 2-1.1 3.3-1.9 4.1s-2.2 1-4 1h-8.6zm128.5 2.7c-5.2 0-10.4-.6-15.4-1.8s-8.9-2.5-11.5-4c-1.6-.9-2.7-1.9-3.1-2.8s-.6-1.9-.6-2.8v-5.1c0-2.1.8-3.1 2.3-3.1.6 0 1.2.1 1.8.3s1.5.6 2.5 1c3.4 1.5 7.1 2.7 11 3.5 4 .8 7.9 1.2 11.9 1.2 6.3 0 11.2-1.1 14.6-3.3s5.2-5.4 5.2-9.5c0-2.8-.9-5.1-2.7-7s-5.2-3.6-10.1-5.2l-14.5-4.5c-7.3-2.3-12.7-5.7-16-10.2s-5-9.7-5-15.4c0-4.4.9-8.3 2.6-11.6s4.2-6.2 7.3-8.4 6.8-4 11.4-5.1 9.5-1.7 14.8-1.7c2.1 0 4.3.1 6.6.4s4.4.6 6.5 1.1 4 1 5.8 1.6 3.2 1.2 4.2 1.8c1.4.8 2.4 1.6 3 2.5s.9 2.2.9 3.9v4.7c0 2.1-.8 3.2-2.3 3.2-.8 0-2.1-.4-3.8-1.2-5.7-2.6-12.1-3.9-19.2-3.9-5.7 0-10.2.9-13.3 2.8s-4.7 4.8-4.7 8.9c0 2.8 1 5.2 3 7.1s5.7 3.8 11 5.5l14.2 4.5c7.2 2.3 12.4 5.5 15.5 9.6s4.6 8.8 4.6 14c0 4.3-.9 8.2-2.6 11.6s-4.1 6.3-7.1 8.8-6.6 4.4-10.7 5.8c-4.2 1.4-8.7 2.1-13.5 2.1z" fill="currentColor"/>
+                <path d="M273.5 143.7c-32.9 24.3-80.7 37.2-121.8 37.2-57.6 0-109.5-21.3-148.7-56.7-3.1-2.8-.3-6.6 3.4-4.4 42.4 24.6 94.7 39.5 148.8 39.5 36.5 0 76.6-7.6 113.5-23.2 5.5-2.3 10.2 3.6 4.8 7.6z" fill="#FF9900"/>
+                <path d="M287.2 128.1c-4.2-5.4-27.8-2.6-38.5-1.3-3.2.4-3.7-2.4-.8-4.5 18.8-13.2 49.7-9.4 53.3-5 3.6 4.5-1 35.4-18.6 50.2-2.7 2.3-5.2 1.1-4-2 5.1-11.8 16.6-38.2 8.6-37.4z" fill="#FF9900"/>
+              </svg>
+              <span>AWS</span>
+            </div>
+            <div class="tech-item">
+              <svg class="tech-logo" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M23.955 13.587l-1.342-4.135-2.664-8.189c-.135-.423-.73-.423-.867 0L16.418 9.45H7.582L4.919 1.263c-.135-.423-.73-.423-.867 0L1.388 9.452-.955 13.587a.849.849 0 0 0 .311 1.05L12 24l10.644-9.363a.849.849 0 0 0 .311-1.05"/>
+              </svg>
+              <span>GitLab</span>
+            </div>
+            <div class="tech-item">
+              <span style="font-size: 1.2em; font-weight: 600;">& more</span>
+            </div>
+            <!-- Duplicate for seamless loop -->
+            <div class="tech-item">
+              <svg class="tech-logo" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z"/>
+              </svg>
+              <span>HTML</span>
+            </div>
+            <div class="tech-item">
+              <svg class="tech-logo" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z"/>
+              </svg>
+              <span>JavaScript</span>
+            </div>
+            <div class="tech-item">
+              <svg class="tech-logo" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm17.09 4.413L5.41 4.41l.213 2.622 10.125.002-.255 2.716h-6.64l.24 2.573h6.182l-.366 3.523-2.91.804-2.956-.81-.188-2.11h-2.61l.29 3.855L12 19.288l5.373-1.53L18.59 4.414z"/>
+              </svg>
+              <span>CSS</span>
+            </div>
+            <div class="tech-item">
+              <svg class="tech-logo" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M14.25.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.77l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.17l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05L0 11.97l.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.24-.01h.16l.06.01h8.16v-.83H6.18l-.01-2.75-.02-.37.05-.34.11-.31.17-.28.25-.26.31-.23.38-.2.44-.18.51-.15.58-.12.64-.1.71-.06.77-.04.84-.02 1.27-.01h.6l.5.01.5.03.48.05.45.08.42.12.37.17.32.22.27.27.2.32.14.36.07.4.01.28-.02.26-.04.23-.06.2-.08.16-.09.13-.1.09-.09.05-.08.02-.05.01H14.4v-.91z"/>
+              </svg>
+              <span>Python</span>
+            </div>
+            <div class="tech-item">
+              <svg class="tech-logo" viewBox="0 0 304 182" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M86.4 66.4c0 3.7.4 6.7 1.1 8.9.8 2.2 1.8 4.6 3.2 7.2.5.8.7 1.6.7 2.3 0 1-.6 2-1.9 3l-6.3 4.2c-.9.6-1.8.9-2.6.9-1 0-2-.5-3-1.4-1.4-1.5-2.6-3.1-3.6-4.7-1-1.7-2-3.6-3.1-5.9-7.8 9.2-17.6 13.8-29.4 13.8-8.4 0-15.1-2.4-20-7.2s-7.4-11.2-7.4-19.2c0-8.5 3-15.4 9.1-20.6s14.2-7.8 24.5-7.8c3.4 0 6.9.3 10.6.8s7.5 1.3 11.5 2.2v-7.3c0-7.6-1.6-12.9-4.7-16-3.2-3.1-8.6-4.6-16.3-4.6-3.5 0-7.1.4-10.8 1.3s-7.3 2-10.8 3.4c-1.6.7-2.8 1.1-3.5 1.3s-1.2.3-1.6.3c-1.4 0-2.1-1-2.1-3.1v-4.9c0-1.6.2-2.8.7-3.5s1.4-1.4 2.8-2.1c3.5-1.8 7.7-3.3 12.6-4.5s10.1-1.8 15.6-1.8c11.9 0 20.6 2.7 26.2 8.1s8.3 13.6 8.3 24.3v32.1zm-40.6 15.2c3.3 0 6.7-.6 10.3-1.8s6.8-3.4 9.5-6.4c1.6-1.9 2.8-4 3.4-6.4s1-5.3 1-8.7v-4.2c-2.9-.7-6-1.3-9.2-1.7s-6.3-.6-9.4-.6c-6.7 0-11.6 1.3-14.9 4s-4.9 6.5-4.9 11.5c0 4.7 1.2 8.2 3.7 10.6 2.4 2.5 5.9 3.7 10.5 3.7zm80.3 10.8c-1.8 0-3-.3-3.8-1s-1.5-2.1-2.1-4.4l-23.5-77.3c-.6-2-.9-3.3-.9-4 0-1.6.8-2.5 2.4-2.5h9.8c1.9 0 3.2.3 3.9 1s1.4 2.1 1.9 4.4l16.8 66.2 15.6-66.2c.5-2 1.1-3.3 1.9-4.2s2.2-1 4-1h8c1.9 0 3.2.3 4 1s1.5 2.2 1.9 4.2l15.8 67 17.3-67c.6-2 1.3-3.3 2-4.2s2.1-1 3.9-1h9.3c1.6 0 2.5.8 2.5 2.5 0 .5-.1 1-.2 1.6s-.3 1.4-.7 2.5l-24.1 77.3c-.6 2-1.3 3.3-2.1 4.2s-2.1 1-3.8 1h-8.6c-1.9 0-3.2-.3-4-1s-1.5-2.1-1.9-4.1l-15.5-64.5-15.3 64.5c-.5 2-1.1 3.3-1.9 4.1s-2.2 1-4 1h-8.6zm128.5 2.7c-5.2 0-10.4-.6-15.4-1.8s-8.9-2.5-11.5-4c-1.6-.9-2.7-1.9-3.1-2.8s-.6-1.9-.6-2.8v-5.1c0-2.1.8-3.1 2.3-3.1.6 0 1.2.1 1.8.3s1.5.6 2.5 1c3.4 1.5 7.1 2.7 11 3.5 4 .8 7.9 1.2 11.9 1.2 6.3 0 11.2-1.1 14.6-3.3s5.2-5.4 5.2-9.5c0-2.8-.9-5.1-2.7-7s-5.2-3.6-10.1-5.2l-14.5-4.5c-7.3-2.3-12.7-5.7-16-10.2s-5-9.7-5-15.4c0-4.4.9-8.3 2.6-11.6s4.2-6.2 7.3-8.4 6.8-4 11.4-5.1 9.5-1.7 14.8-1.7c2.1 0 4.3.1 6.6.4s4.4.6 6.5 1.1 4 1 5.8 1.6 3.2 1.2 4.2 1.8c1.4.8 2.4 1.6 3 2.5s.9 2.2.9 3.9v4.7c0 2.1-.8 3.2-2.3 3.2-.8 0-2.1-.4-3.8-1.2-5.7-2.6-12.1-3.9-19.2-3.9-5.7 0-10.2.9-13.3 2.8s-4.7 4.8-4.7 8.9c0 2.8 1 5.2 3 7.1s5.7 3.8 11 5.5l14.2 4.5c7.2 2.3 12.4 5.5 15.5 9.6s4.6 8.8 4.6 14c0 4.3-.9 8.2-2.6 11.6s-4.1 6.3-7.1 8.8-6.6 4.4-10.7 5.8c-4.2 1.4-8.7 2.1-13.5 2.1z" fill="currentColor"/>
+                <path d="M273.5 143.7c-32.9 24.3-80.7 37.2-121.8 37.2-57.6 0-109.5-21.3-148.7-56.7-3.1-2.8-.3-6.6 3.4-4.4 42.4 24.6 94.7 39.5 148.8 39.5 36.5 0 76.6-7.6 113.5-23.2 5.5-2.3 10.2 3.6 4.8 7.6z" fill="#FF9900"/>
+                <path d="M287.2 128.1c-4.2-5.4-27.8-2.6-38.5-1.3-3.2.4-3.7-2.4-.8-4.5 18.8-13.2 49.7-9.4 53.3-5 3.6 4.5-1 35.4-18.6 50.2-2.7 2.3-5.2 1.1-4-2 5.1-11.8 16.6-38.2 8.6-37.4z" fill="#FF9900"/>
+              </svg>
+              <span>AWS</span>
+            </div>
+            <div class="tech-item">
+              <svg class="tech-logo" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M23.955 13.587l-1.342-4.135-2.664-8.189c-.135-.423-.73-.423-.867 0L16.418 9.45H7.582L4.919 1.263c-.135-.423-.73-.423-.867 0L1.388 9.452-.955 13.587a.849.849 0 0 0 .311 1.05L12 24l10.644-9.363a.849.849 0 0 0 .311-1.05"/>
+              </svg>
+              <span>GitLab</span>
+            </div>
+            <div class="tech-item">
+              <span style="font-size: 1.2em; font-weight: 600;">& more</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="page-section">
-    <div class="contact-container">
-      <div class="section-header">
-        <h2 class="section-title">Get In Touch</h2>
-        <p class="section-description">
-          Let's connect and discuss potential opportunities or collaborations.
-        </p>
-      </div>
-      
-      <div class="contact-content">
-        <div class="contact-info">
-          <div class="contact-item">
-            <div class="contact-icon">@</div>
-            <div class="contact-text">
-              <h4>Email</h4>
-              <p>hello@liuzhi.dev</p>
-            </div>
-          </div>
-          
-          <div class="contact-item">
-            <div class="contact-icon">IN</div>
-            <div class="contact-text">
-              <h4>LinkedIn</h4>
-              <p>Connect with me professionally</p>
-            </div>
-          </div>
-          
-          <div class="contact-item">
-            <div class="contact-icon">GH</div>
-            <div class="contact-text">
-              <h4>GitHub</h4>
-              <p>Check out my code repositories</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  </main>
 
   <script src="main.js"></script>
+
 </body>
 </html>

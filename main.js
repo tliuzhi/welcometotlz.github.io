@@ -1,4 +1,4 @@
-// ----------- Rotating Text -------------
+// Rotating Text Effect
 var TxtRotate = function (el, toRotate, period) {
   this.toRotate = toRotate;
   this.el = el;
@@ -40,33 +40,12 @@ TxtRotate.prototype.tick = function () {
   }, delta);
 };
 
-// ----------- Clock Display -------------
-function getTime() {
-  const date = new Date();
-  return date.toLocaleTimeString('en-US', {
-    hour: 'numeric',
-    minute: '2-digit',
-    second: '2-digit',
-    hour12: true
-  });
-}
-
+// Time Display
 function updateTime() {
-  const time = getTime();
-  const timeEl = document.getElementById("time");
-  if (timeEl) {
-    timeEl.innerText = `The current time is ${time}`;
-  }
-  
-  // Update top-right time display
-  updateTopRightTime();
-}
-
-function updateTopRightTime() {
   const now = new Date();
-  const timeLineEl = document.getElementById("current-time-line");
+  const timeEl = document.getElementById("current-time");
   
-  if (timeLineEl) {
+  if (timeEl) {
     const timeString = now.toLocaleTimeString('en-US', {
       hour: 'numeric',
       minute: '2-digit',
@@ -79,40 +58,39 @@ function updateTopRightTime() {
       day: 'numeric'
     });
     
-    // Put everything in a single line
-    timeLineEl.innerText = `${timeString} • ${dateString}`;
+    timeEl.innerText = `${timeString} • ${dateString}`;
   }
 }
 
-// ----------- Theme Logic -------------
+// Theme Management
 function setThemeByTime() {
   const hour = new Date().getHours();
   const body = document.body;
 
-  // Clear previous classes
   body.classList.remove("day", "night");
 
   if (hour >= 6 && hour < 18) {
     body.classList.add("day");
     removeNightElements();
+    showSun();
+    createClouds();
     createFloatingParticles(true);
   } else {
     body.classList.add("night");
+    removeDayElements();
     showMoonAndStars();
     createFloatingParticles(false);
   }
 }
 
-// ----------- Moon + Stars -------------
+// Celestial Elements
 function showMoonAndStars() {
-  // Moon
   if (!document.querySelector(".moon")) {
     const moon = document.createElement("div");
     moon.classList.add("moon");
     document.body.appendChild(moon);
   }
 
-  // Stars
   if (document.querySelectorAll(".star").length === 0) {
     for (let i = 0; i < 30; i++) {
       const star = document.createElement("div");
@@ -127,6 +105,68 @@ function showMoonAndStars() {
   }
 }
 
+function showSun() {
+  if (!document.querySelector(".sun")) {
+    const sun = document.createElement("div");
+    sun.classList.add("sun");
+    document.body.appendChild(sun);
+  }
+}
+
+function createClouds() {
+  const existingClouds = document.querySelectorAll(".cloud");
+  existingClouds.forEach(cloud => cloud.remove());
+  
+  const cloudTypes = ['small', 'medium', 'large'];
+  const cloudCount = 5;
+  
+  for (let i = 0; i < cloudCount; i++) {
+    const cloud = document.createElement("div");
+    cloud.classList.add("cloud", `cloud-${cloudTypes[Math.floor(Math.random() * cloudTypes.length)]}`);
+    
+    const topPosition = Math.random() * 40 + 10;
+    cloud.style.top = `${topPosition}%`;
+    
+    const delay = Math.random() * 20;
+    cloud.style.animationDelay = `${delay}s`;
+    
+    const duration = 15 + Math.random() * 25;
+    cloud.style.animationDuration = `${duration}s`;
+    
+    document.body.appendChild(cloud);
+  }
+  
+  // Create new clouds periodically
+  setInterval(() => {
+    if (document.body.classList.contains('day') && document.querySelectorAll(".cloud").length < 8) {
+      const cloud = document.createElement("div");
+      cloud.classList.add("cloud", `cloud-${cloudTypes[Math.floor(Math.random() * cloudTypes.length)]}`);
+      
+      const topPosition = Math.random() * 40 + 10;
+      cloud.style.top = `${topPosition}%`;
+      
+      const duration = 15 + Math.random() * 25;
+      cloud.style.animationDuration = `${duration}s`;
+      
+      document.body.appendChild(cloud);
+      
+      setTimeout(() => {
+        if (cloud.parentNode) {
+          cloud.remove();
+        }
+      }, duration * 1000);
+    }
+  }, 8000);
+}
+
+function removeDayElements() {
+  const sun = document.querySelector(".sun");
+  if (sun) sun.remove();
+  
+  const clouds = document.querySelectorAll(".cloud");
+  clouds.forEach(cloud => cloud.remove());
+}
+
 function removeNightElements() {
   const moon = document.querySelector(".moon");
   if (moon) moon.remove();
@@ -138,9 +178,7 @@ function removeNightElements() {
   particles.forEach(particle => particle.remove());
 }
 
-// ----------- Floating Particles -------------
 function createFloatingParticles(isDay = true) {
-  // Remove existing particles first
   const existingParticles = document.querySelectorAll(".particle");
   existingParticles.forEach(particle => particle.remove());
   
@@ -151,11 +189,9 @@ function createFloatingParticles(isDay = true) {
     const particle = document.createElement("div");
     particle.classList.add("particle", particleClass);
     
-    // Random starting position
     particle.style.left = `${Math.random() * 100}%`;
-    particle.style.top = `${100 + Math.random() * 20}%`; // Start below viewport
+    particle.style.top = `${100 + Math.random() * 20}%`;
     
-    // Random animation delay and duration
     const delay = Math.random() * 5;
     const duration = 6 + Math.random() * 4;
     particle.style.animationDelay = `${delay}s`;
@@ -163,7 +199,6 @@ function createFloatingParticles(isDay = true) {
     
     document.body.appendChild(particle);
     
-    // Remove particle after animation completes
     setTimeout(() => {
       if (particle.parentNode) {
         particle.remove();
@@ -171,7 +206,6 @@ function createFloatingParticles(isDay = true) {
     }, (delay + duration) * 1000);
   }
   
-  // Continuously create new particles
   setTimeout(() => {
     const hour = new Date().getHours();
     const shouldShowDay = hour >= 6 && hour < 18;
@@ -181,18 +215,20 @@ function createFloatingParticles(isDay = true) {
   }, 2000 + Math.random() * 3000);
 }
 
-// ----------- Loading Screen Management -------------
+// Loading Screen
 function hideLoadingScreen() {
   const loadingScreen = document.getElementById('loading-screen');
   if (loadingScreen) {
-    loadingScreen.classList.add('fade-out');
+    loadingScreen.style.opacity = '0';
     setTimeout(() => {
       loadingScreen.remove();
     }, 500);
   }
 }
 
-// ----------- On Page Load -------------
+
+
+// Initialization
 window.onload = function () {
   // Setup rotating text
   var elements = document.getElementsByClassName('txt-rotate');
@@ -204,141 +240,22 @@ window.onload = function () {
     }
   }
 
-  // Inject CSS for caret
+  // Inject CSS for text cursor
   var css = document.createElement("style");
   css.type = "text/css";
   css.innerHTML = ".txt-rotate > .wrap { border-right: 0.08em solid #666 }";
   document.body.appendChild(css);
 
-  // Setup time
+  // Setup time updates
   updateTime();
   setInterval(updateTime, 1000);
 
   // Setup theme
   setThemeByTime();
-  setInterval(setThemeByTime, 10 * 60 * 1000); // Update every 10 mins
+  setInterval(setThemeByTime, 10 * 60 * 1000); // Update every 10 minutes
   
-  // Add click interaction to time display
-  const timeElement = document.getElementById('time');
-  if (timeElement) {
-    timeElement.addEventListener('click', function() {
-      // Create sparkle effect
-      createSparkleEffect(this);
-      
-      // Briefly show different time format
-      const originalText = this.innerText;
-      const date = new Date();
-      this.innerText = `${date.toLocaleDateString()} • ${date.toLocaleTimeString()}`;
-      this.style.transform = 'scale(1.05)';
-      
-      setTimeout(() => {
-        this.innerText = originalText;
-        this.style.transform = 'scale(1)';
-      }, 2000);
-    });
-  }
-  
-  // Hide loading screen after everything is initialized
+  // Hide loading screen
   setTimeout(() => {
     hideLoadingScreen();
-  }, 2000); // Show hamster for 2 seconds minimum
-  
-  // Setup navigation
-  setupNavigation();
+  }, 2000);
 };
-
-// ----------- Navigation Management -------------
-function setupNavigation() {
-  const navLinks = document.querySelectorAll('.nav-link');
-  
-  navLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
-      const targetId = link.getAttribute('href');
-      const targetSection = document.querySelector(targetId);
-      
-      if (targetSection) {
-        targetSection.scrollIntoView({
-          behavior: 'smooth'
-        });
-      }
-      
-      // Update active nav link
-      navLinks.forEach(nl => nl.classList.remove('active'));
-      link.classList.add('active');
-    });
-  });
-  
-  // Set home link as active by default
-  const homeLink = document.querySelector('.nav-link[href="#home"]');
-  if (homeLink) {
-    homeLink.classList.add('active');
-  }
-  
-  // Update active nav link on scroll
-  window.addEventListener('scroll', () => {
-    const sections = document.querySelectorAll('.page-section');
-    const scrollPosition = window.scrollY + 100;
-    
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop;
-      const sectionHeight = section.offsetHeight;
-      const sectionId = section.getAttribute('id');
-      const correspondingLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
-      
-      if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-        navLinks.forEach(link => link.classList.remove('active'));
-        if (correspondingLink) {
-          correspondingLink.classList.add('active');
-        }
-      }
-    });
-  });
-  
-  // Mobile menu toggle - disabled for always-visible nav
-  // const toggle = document.querySelector('.navbar-toggle');
-  // const menu = document.querySelector('.navbar-menu');
-  
-  // Navigation is always visible on mobile, no toggle needed
-}
-
-// ----------- Sparkle Effect -------------
-function createSparkleEffect(element) {
-  const rect = element.getBoundingClientRect();
-  const sparkleCount = 8;
-  
-  for (let i = 0; i < sparkleCount; i++) {
-    const sparkle = document.createElement('div');
-    sparkle.style.position = 'fixed';
-    sparkle.style.left = `${rect.left + rect.width / 2}px`;
-    sparkle.style.top = `${rect.top + rect.height / 2}px`;
-    sparkle.style.width = '4px';
-    sparkle.style.height = '4px';
-    sparkle.style.background = '#ffd700';
-    sparkle.style.borderRadius = '50%';
-    sparkle.style.pointerEvents = 'none';
-    sparkle.style.zIndex = '1000';
-    sparkle.style.boxShadow = '0 0 6px #ffd700';
-    
-    const angle = (i / sparkleCount) * Math.PI * 2;
-    const distance = 50 + Math.random() * 30;
-    const targetX = Math.cos(angle) * distance;
-    const targetY = Math.sin(angle) * distance;
-    
-    sparkle.style.transition = 'all 0.6s ease-out';
-    document.body.appendChild(sparkle);
-    
-    // Animate sparkle
-    setTimeout(() => {
-      sparkle.style.transform = `translate(${targetX}px, ${targetY}px)`;
-      sparkle.style.opacity = '0';
-    }, 10);
-    
-    // Remove sparkle
-    setTimeout(() => {
-      if (sparkle.parentNode) {
-        sparkle.remove();
-      }
-    }, 600);
-  }
-}
